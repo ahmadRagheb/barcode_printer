@@ -35,21 +35,31 @@ frappe.ui.form.on('Barcode Printer', {
 							"item_code": row.item_code,
 							"item_serial_no": row.serial_no || ""
 						});
+						if (row.serial_no){
+							var c = -1
+							row.serial_no.split("\n").forEach(function (element, index) {
+								let row = frm.add_child("serials_and_barcodes", {
+									"barcode": element
+								})
+								frm.refresh_field("serials_and_barcodes")
+								c = c+1
+								cur_frm.grids[1].grid.grid_rows[index].toggle_view(true);
 
-						row.serial_no && cur_frm.events.createBarcodes(frm, row.serial_no)
+							});
+							// frappe.model.set_value(row.doctype, row.name, "barcode",row.barcode_data); 
+							console.log(c,"cc");
+							cur_frm.grids[1].grid.grid_rows[c].toggle_view(false);
+
+							frm.refresh_field("serials_and_barcodes")
+						};
+							
+						
+						// row.serial_no && cur_frm.events.createBarcodes(frm, row.serial_no)
 					});
 					frm.refresh_field("items")
 				}
 			}
 		});
-	},
-	createBarcodes: function (frm, serial_no) {
-		serial_no.split("\n").forEach(element => {
-			frm.add_child("serials_and_barcodes", {
-				"barcode": element
-			});
-		});
-		frm.refresh_field("serials_and_barcodes")
 	},
 	print: function (frm) {
 		if (frm.doc.num <= 0 || !frm.doc.document) {
@@ -65,3 +75,17 @@ frappe.ui.form.on('Barcode Printer', {
 		}
 	}
 });
+
+
+// frappe.ui.form.on('Serials And Barcodes', {
+// 	barcode_data(frm,cdt, cdn) {
+// 		print('xxxxxxxxxx')
+// 			let row = frappe.get_doc(cdt, cdn);
+// 			print(row)
+	
+// 		frappe.model.set_value(row.doctype, row.name, "barcode",row.barcode_data); 
+// 		frm.refresh_field("serials_and_barcodes")
+
+// 				// your code here
+// 	}
+// })
