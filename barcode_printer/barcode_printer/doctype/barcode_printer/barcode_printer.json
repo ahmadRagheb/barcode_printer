@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "creation": "2020-05-08 20:18:53.827365",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_type",
+  "document",
+  "column_break_3",
+  "num",
+  "print",
+  "section_break_6",
+  "items",
+  "serials_and_barcodes"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Document Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Dynamic Link",
+   "label": "Document",
+   "options": "document_type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Barcode Item"
+  },
+  {
+   "default": "1",
+   "fieldname": "num",
+   "fieldtype": "Int",
+   "label": "Num"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "print",
+   "fieldtype": "Button",
+   "label": "Print"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "serials_and_barcodes",
+   "fieldtype": "Table",
+   "label": "Serials And Barcodes",
+   "options": "Serials And Barcodes"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2020-05-08 22:58:39.846210",
+ "modified_by": "Administrator",
+ "module": "Barcode Printer",
+ "name": "Barcode Printer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

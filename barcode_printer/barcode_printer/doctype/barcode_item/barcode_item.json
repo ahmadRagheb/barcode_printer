@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "creation": "2020-05-08 20:20:40.495355",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "column_break_2",
+  "item_serial_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_serial_no",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Item Serial No"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2020-05-08 21:23:05.222856",
+ "modified_by": "Administrator",
+ "module": "Barcode Printer",
+ "name": "Barcode Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

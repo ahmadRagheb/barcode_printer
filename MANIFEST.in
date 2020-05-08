@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include barcode_printer *.css
+recursive-include barcode_printer *.csv
+recursive-include barcode_printer *.html
+recursive-include barcode_printer *.ico
+recursive-include barcode_printer *.js
+recursive-include barcode_printer *.json
+recursive-include barcode_printer *.md
+recursive-include barcode_printer *.png
+recursive-include barcode_printer *.py
+recursive-include barcode_printer *.svg
+recursive-include barcode_printer *.txt
+recursive-exclude barcode_printer *.pyc
