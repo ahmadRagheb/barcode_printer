@@ -87,6 +87,15 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	"Delivery Note": {
+		"on_update": "barcode_printer.api.create_barcode",
+		# "on_cancel": "method",
+		# "on_trash": "method"
+	}
+}
+
+
 # Scheduled Tasks
 # ---------------
 
@@ -136,5 +145,6 @@ fixtures = [
     {
         "dt": "Print Format",
         "filters": [["doc_type", "in", ("Barcode Printer")]]
-    }
+    },
+	{"dt":"Custom Field", "filters": [["dt", "in", ("barcode_label")]]}
 ]
