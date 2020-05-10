@@ -92,7 +92,10 @@ doc_events = {
 		"on_update": "barcode_printer.api.create_barcode",
 		# "on_cancel": "method",
 		# "on_trash": "method"
-	}
+	},
+    "Sales Invoice":{
+		"on_update": "barcode_printer.api.create_barcode",
+    }
 }
 
 
@@ -149,7 +152,7 @@ fixtures = [
     {
         "dt": "Custom Field",
         "filters": [
-            ["name", "in", ["Delivery Note-barcode_label"]
+            ["name", "in", ["Delivery Note-barcode_label","Sales Invoice-barcode_label"]
             ]
         ]
     }
