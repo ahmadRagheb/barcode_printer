@@ -8,12 +8,13 @@ def create_barcode(doc, method):
         if doc.barcode_label != doc.name:
             doc.barcode_label = doc.name
             doc.save()
+
+
 def create_purchase_date(doc, method):
     for row in doc.items:
         purchase_date =""
         has_serial_no = frappe.get_value('Item', row.item_code, 'has_serial_no')	
         if has_serial_no:
-
             serial_no_list  = row.serial_no.splitlines()
             if len(serial_no_list)>0:
                 for sno in serial_no_list:
@@ -29,4 +30,3 @@ def create_purchase_date(doc, method):
                             if sno in new_se_list:
                                 purchase_date = purchase_date + str(se.purchasing_date) + "\n"
         row.purchase_date = purchase_date
-
