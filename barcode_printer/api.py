@@ -27,9 +27,6 @@ def create_purchase_date(doc, method):
                             new_se_list =[]
                             for ss in se_serial_no_list:
                                 new_se_list.append(ss.upper())
-
-                            # frappe.msgprint(se_serial_no_list)
                             if sno in new_se_list:
-                                # frappe.throw("found")
                                 purchase_date = purchase_date + str(se.purchasing_date) + "\n"
         row.purchase_date = purchase_date
