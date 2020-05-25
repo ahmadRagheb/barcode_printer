@@ -89,7 +89,7 @@ app_license = "MIT"
 
 doc_events = {
 	"Delivery Note": {
-		"on_update": "barcode_printer.api.create_barcode",
+		"on_update": ["barcode_printer.api.create_barcode","barcode_printer.api.create_purchase_date"],
 		# "on_cancel": "method",
 		# "on_trash": "method"
 	},
