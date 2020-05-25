@@ -148,12 +148,4 @@ fixtures = [
     {
         "dt": "Print Format",
         "filters": [["doc_type", "in", ("Barcode Printer")]]
-    },
-    {
-        "dt": "Custom Field",
-        "filters": [
-            ["name", "in", ["Delivery Note-barcode_label","Sales Invoice-barcode_label"]
-            ]
-        ]
-    }
-]
+    }]
