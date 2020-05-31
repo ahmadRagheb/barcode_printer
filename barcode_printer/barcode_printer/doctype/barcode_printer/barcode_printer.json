@@ -1,5 +1,4 @@
 {
- "actions": [],
  "creation": "2020-05-08 20:18:53.827365",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -12,7 +11,8 @@
   "print",
   "section_break_6",
   "items",
-  "serials_and_barcodes"
+  "serials_and_barcodes",
+  "barcodes"
  ],
  "fields": [
   {
@@ -60,11 +60,14 @@
    "fieldtype": "Table",
    "label": "Serials And Barcodes",
    "options": "Serials And Barcodes"
+  },
+  {
+   "fieldname": "barcodes",
+   "fieldtype": "Long Text"
   }
  ],
  "issingle": 1,
- "links": [],
- "modified": "2020-05-08 22:58:39.846210",
+ "modified": "2020-05-31 20:19:54.477095",
  "modified_by": "Administrator",
  "module": "Barcode Printer",
  "name": "Barcode Printer",

@@ -22,6 +22,24 @@ frappe.ui.form.on('Barcode Printer', {
 	},
 	fetchItems: function (frm) {
 		frm.doc.list_of_items = []
+		// frappe.call({
+		// 	doc:frm.doc,
+		// 	method:"generate_barcodes",
+		// 	args:{
+		// 		"doctype":frm.doc.document_type,
+		// 		"docname":frm.doc.document
+		// 	},
+		// 	callback:function(result){
+		// 		if(result.message){
+		// 			let barcode_html = "";
+		// 			result.message.forEach(barcode => {
+		// 				barcode_html+=(`<img src="${barcode}" style="width:200px"/><br/>`)
+		// 			});
+		// 			frm.set_value("barcodes",barcode_html);
+		// 			console.log(result.message);
+		// 		}
+		// 	}
+		// })
 		frappe.call({
 			method: "frappe.client.get",
 			args: {
