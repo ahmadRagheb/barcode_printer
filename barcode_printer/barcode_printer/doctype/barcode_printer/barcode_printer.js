@@ -22,24 +22,6 @@ frappe.ui.form.on('Barcode Printer', {
 	},
 	fetchItems: function (frm) {
 		frm.doc.list_of_items = []
-		// frappe.call({
-		// 	doc:frm.doc,
-		// 	method:"generate_barcodes",
-		// 	args:{
-		// 		"doctype":frm.doc.document_type,
-		// 		"docname":frm.doc.document
-		// 	},
-		// 	callback:function(result){
-		// 		if(result.message){
-		// 			let barcode_html = "";
-		// 			result.message.forEach(barcode => {
-		// 				barcode_html+=(`<img src="${barcode}" style="width:200px"/><br/>`)
-		// 			});
-		// 			frm.set_value("barcodes",barcode_html);
-		// 			console.log(result.message);
-		// 		}
-		// 	}
-		// })
 		frappe.call({
 			method: "frappe.client.get",
 			args: {
@@ -53,26 +35,6 @@ frappe.ui.form.on('Barcode Printer', {
 							"item_code": row.item_code,
 							"item_serial_no": row.serial_no || ""
 						});
-						if (row.serial_no){
-							var c = -1
-							row.serial_no.split("\n").forEach(function (element, index) {
-								let row = frm.add_child("serials_and_barcodes", {
-									"barcode": element
-								})
-								frm.refresh_field("serials_and_barcodes")
-								c = c+1
-								cur_frm.grids[1].grid.grid_rows[index].toggle_view(true);
-
-							});
-							// frappe.model.set_value(row.doctype, row.name, "barcode",row.barcode_data); 
-							console.log(c,"cc");
-							cur_frm.grids[1].grid.grid_rows[c].toggle_view(false);
-
-							frm.refresh_field("serials_and_barcodes")
-						};
-							
-						
-						// row.serial_no && cur_frm.events.createBarcodes(frm, row.serial_no)
 					});
 					frm.refresh_field("items")
 				}
@@ -93,17 +55,3 @@ frappe.ui.form.on('Barcode Printer', {
 		}
 	}
 });
-
-
-// frappe.ui.form.on('Serials And Barcodes', {
-// 	barcode_data(frm,cdt, cdn) {
-// 		print('xxxxxxxxxx')
-// 			let row = frappe.get_doc(cdt, cdn);
-// 			print(row)
-	
-// 		frappe.model.set_value(row.doctype, row.name, "barcode",row.barcode_data); 
-// 		frm.refresh_field("serials_and_barcodes")
-
-// 				// your code here
-// 	}
-// })

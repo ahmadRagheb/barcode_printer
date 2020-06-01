@@ -10,9 +10,7 @@
   "num",
   "print",
   "section_break_6",
-  "items",
-  "serials_and_barcodes",
-  "barcodes"
+  "items"
  ],
  "fields": [
   {
@@ -54,20 +52,10 @@
   {
    "fieldname": "section_break_6",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "serials_and_barcodes",
-   "fieldtype": "Table",
-   "label": "Serials And Barcodes",
-   "options": "Serials And Barcodes"
-  },
-  {
-   "fieldname": "barcodes",
-   "fieldtype": "Long Text"
   }
  ],
  "issingle": 1,
- "modified": "2020-05-31 20:19:54.477095",
+ "modified": "2020-06-01 03:24:35.283695",
  "modified_by": "Administrator",
  "module": "Barcode Printer",
  "name": "Barcode Printer",
