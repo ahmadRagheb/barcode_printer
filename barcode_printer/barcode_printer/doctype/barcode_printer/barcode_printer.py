@@ -29,12 +29,12 @@ def write_images(filtered_codes):
 	import barcode
 	from barcode.writer import ImageWriter
 	import base64
-	CODE39 = barcode.get_barcode_class('code39')
+	CODE128 = barcode.get_barcode_class('code128')
 	images = []
 	for barcode in filtered_codes:
 		# print to a file-like object:
 		rv = BytesIO()
-		CODE39(str(barcode), writer=ImageWriter()).write(rv)
+		CODE128(str(barcode), writer=ImageWriter()).write(rv)
 		img_str = base64.b64encode(rv.getvalue()).decode()
 		images.append(img_str)
 		# rv.seek(0)
