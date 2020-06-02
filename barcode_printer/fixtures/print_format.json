@@ -1,7 +1,7 @@
 [
  {
   "align_labels_right": 0,
-  "css": null,
+  "css": "",
   "custom_format": 1,
   "default_print_language": "en",
   "disabled": 0,
@@ -10,9 +10,9 @@
   "doctype": "Print Format",
   "font": "Default",
   "format_data": null,
-  "html": "{% for n in range(doc.num) %}\n    <ul style=\"  list-style-type: none;\">\n    {% for barcode in doc.generate_barcodes() %}\n    \t<li>\n    <img style=\"width:200px\" src=\"data:image/png;base64,{{ barcode}}\">\n    \t</li>\n    \t{% endfor %}\n    </ul>\n{% endfor %}",
+  "html": "    <ul style=\"list-style-type: none;padding:10px;\">\r\n{% for n in range(doc.num) %}\r\n    {% for barcode in doc.generate_barcodes() %}\r\n    \t<li>\r\n    <!--<img width=\"700\" height=\"80\" align=\"center\" src=\"data:image/png;base64,{{ barcode }}\">-->\r\n         <img align=\"center\" src=\"data:image/png;base64,{{ barcode }}\">\r\n\r\n    \t</li>\r\n    \t{% endfor %}\r\n{% endfor %}\r\n\r\n    </ul>\r\n",
   "line_breaks": 0,
-  "modified": "2020-06-01 03:25:49.182116",
+  "modified": "2020-06-02 18:36:23.824301",
   "module": "Barcode Printer",
   "name": "Barcode Print Format",
   "parent": null,

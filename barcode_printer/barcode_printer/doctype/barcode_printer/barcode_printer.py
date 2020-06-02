@@ -29,14 +29,35 @@ def write_images(filtered_codes):
 	import barcode
 	from barcode.writer import ImageWriter
 	import base64
+	from barcode import generate
+
+	# module_width:	The width of one barcode module in mm as float. Defaults to 0.2.
+	# module_height:	The height of the barcode modules in mm as float. Defaults to 15.0.
+	# quiet_zone:	Distance on the left and on the right from the border to the first (last) barcode module in mm as float.
+	#  Defaults to 6.5.
+	# font_path:	Path to the font file to be used. Defaults to DejaVuSansMono (which is bundled with this package).
+	# font_size:	Font size of the text under the barcode in pt as integer. Defaults to 10.
+	# text_distance:	Distance between the barcode and the text under it in mm as float. Defaults to 5.0.
+	# background:	The background color of the created barcode as string. Defaults to white.
+	# foreground:	The foreground and text color of the created barcode as string. Defaults to black.
+
 	CODE128 = barcode.get_barcode_class('code128')
 	images = []
-	for barcode in filtered_codes:
+	for sno in filtered_codes:
 		# print to a file-like object:
 		rv = BytesIO()
-		CODE128(str(barcode), writer=ImageWriter()).write(rv)
+		writerx=ImageWriter()
+		writer_options = {"module_width": .12,
+						"module_height":4,
+						"font_size": 6,
+						"text_distance": 1,
+						"quiet_zone": 2}
+
+		generate('code128', str(sno), writer=writerx, output=rv, writer_options=writer_options,text=None)
+
 		img_str = base64.b64encode(rv.getvalue()).decode()
 		images.append(img_str)
-		# rv.seek(0)
 		rv.close()
 	return images
+
+
