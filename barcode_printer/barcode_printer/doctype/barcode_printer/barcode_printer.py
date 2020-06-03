@@ -14,7 +14,7 @@ class BarcodePrinter(Document):
 	def generate_barcodes(self):
 		items = self.get("items")
 		filtered_codes = filter_serial_no(items)
-		final_barcodes = write_images(filtered_codes)
+		final_barcodes = write_images(filtered_codes, self)
 		return final_barcodes
 
 def filter_serial_no(items):
@@ -24,7 +24,7 @@ def filter_serial_no(items):
 		filtered_serials += (serials.split("\n"))
 	return filtered_serials
 
-def write_images(filtered_codes):
+def write_images(filtered_codes, doc):
 	from io import BytesIO
 	import barcode
 	from barcode.writer import ImageWriter
@@ -47,11 +47,11 @@ def write_images(filtered_codes):
 		# print to a file-like object:
 		rv = BytesIO()
 		writerx=ImageWriter()
-		writer_options = {"module_width": .12,
-						"module_height":4,
-						"font_size": 6,
-						"text_distance": 1,
-						"quiet_zone": 2}
+		writer_options = {"module_width": doc.module_width,
+						"module_height": doc.module_height,
+						"font_size": doc.font_size ,
+						"text_distance": doc.text_distance,
+						"quiet_zone": doc.quiet_zone}
 
 		generate('code128', str(sno), writer=writerx, output=rv, writer_options=writer_options,text=None)
 

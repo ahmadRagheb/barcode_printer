@@ -10,7 +10,14 @@
   "num",
   "print",
   "section_break_6",
-  "items"
+  "items",
+  "printing_settings_section",
+  "module_width",
+  "module_height",
+  "column_break_11",
+  "font_size",
+  "text_distance",
+  "quiet_zone"
  ],
  "fields": [
   {
@@ -52,10 +59,50 @@
   {
    "fieldname": "section_break_6",
    "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "printing_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Printing Settings"
+  },
+  {
+   "description": "The width of one barcode module in mm as float. Defaults to 0.2 ",
+   "fieldname": "module_width",
+   "fieldtype": "Float",
+   "label": "Module width"
+  },
+  {
+   "description": "The height of the barcode modules in mm as float. Defaults to 15.0",
+   "fieldname": "module_height",
+   "fieldtype": "Float",
+   "label": "Module height"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Font size of the text under the barcode in pt as integer. Defaults to 10",
+   "fieldname": "font_size",
+   "fieldtype": "Int",
+   "label": "Font size"
+  },
+  {
+   "description": "Distance between the barcode and the text under it in mm as float. Defaults to 5.0",
+   "fieldname": "text_distance",
+   "fieldtype": "Float",
+   "label": "Text distance"
+  },
+  {
+   "description": "Distance on the left and on the right from the border to the first (last) barcode module in mm as float",
+   "fieldname": "quiet_zone",
+   "fieldtype": "Float",
+   "label": "Quiet zone"
   }
  ],
  "issingle": 1,
- "modified": "2020-06-01 03:24:35.283695",
+ "modified": "2020-06-03 23:30:53.520277",
  "modified_by": "Administrator",
  "module": "Barcode Printer",
  "name": "Barcode Printer",
